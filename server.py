@@ -11,6 +11,8 @@ def emotion_detector_route():
     response = list(response.items())
     emotions = ", ".join([F"{k}: {v}" for k,v in response[:-1]])
     dominant_emotion = response[-1][1]
+    if dominant_emotion is None:
+        return "Invalid text! Please try again!."
     return F"For the given statement, the system response is {emotions}. The dominant emotion is {dominant_emotion}."
 
 

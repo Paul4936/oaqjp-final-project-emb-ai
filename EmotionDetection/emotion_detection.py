@@ -18,6 +18,15 @@ def emotion_detector(text_to_analyze):
         pass
     elif response.status_code == 500:
         emotions = None
+    elif response.status_code == 400:
+        emotions = {
+                    "anger": None, 
+                    "disgust": None, 
+                    "fear": None, 
+                    "joy": None, 
+                    "sadness": None, 
+                    "dominant_emotion": None}
+        return emotions
 
     dominant_emotion = None
     tmp_maxVal = None
